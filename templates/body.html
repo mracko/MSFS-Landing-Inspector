@@ -1,0 +1,517 @@
+{% extends "head.html" %}
+{% block body %}
+
+
+<script type="text/javascript">
+// SimConnect Scripts
+var dummy = 0;
+
+var intervalID = setInterval(update_values,100);
+	
+function update_values() {
+	$.getJSON($SCRIPT_ROOT + '/_stuff',
+	
+  function (data_simconnect) {
+	$('#G_FORCE_Output').text(data_simconnect.G_FORCE)
+	$('#VERTICAL_SPEED_Output').text(data_simconnect.VERTICAL_SPEED)
+	$('#G_FORCE_LANDING_Output').text(data_simconnect.G_FORCE_LANDING)
+	$('#VERTICAL_SPEED_LANDING_Output').text(data_simconnect.VERTICAL_SPEED_LANDING)
+	$('#LANDING_RATING_Output').text(data_simconnect.LANDING_RATING)
+	
+	var empty_labels = data_simconnect.LABELS;
+	var list_landing_gs = data_simconnect.G_FORCE_LANDING_LIST;
+	var list_landing_vspeed = data_simconnect.VERTICAL_SPEED_LANDING_LIST;
+	var list_landing_alts = data_simconnect.PLANE_ALT_ABOVE_GROUND_LIST;
+	var landing_rating = data_simconnect.LANDING_RATING;
+	var landing_counter = data_simconnect.LANDING_COUNTER;
+	
+	if (dummy <= landing_counter) {
+	
+$(document).ready(function() {
+  // Javascript method's body can be found in assets/js/demos.js
+  demo.initDashboardPageCharts();
+
+});
+
+demo = {
+
+  initDashboardPageCharts: function() {
+
+    gradientChartOptionsConfigurationWithTooltipBlue = {
+      maintainAspectRatio: false,
+      legend: {
+        display: false
+      },
+
+      tooltips: {
+        backgroundColor: '#f5f5f5',
+        titleFontColor: '#333',
+        bodyFontColor: '#666',
+        bodySpacing: 4,
+        xPadding: 12,
+        mode: "nearest",
+        intersect: 0,
+        position: "nearest"
+      },
+      responsive: true,
+      scales: {
+        yAxes: [{
+          barPercentage: 1.6,
+          gridLines: {
+            drawBorder: false,
+            color: 'rgba(29,140,248,0.0)',
+            zeroLineColor: "transparent",
+          },
+          ticks: {
+            suggestedMin: 60,
+            suggestedMax: 125,
+            padding: 20,
+            fontColor: "#2380f7"
+          }
+        }],
+
+        xAxes: [{
+          barPercentage: 1.6,
+          gridLines: {
+            drawBorder: false,
+            color: 'rgba(29,140,248,0.1)',
+            zeroLineColor: "transparent",
+          },
+          ticks: {
+            padding: 20,
+            fontColor: "#2380f7"
+          }
+        }]
+      }
+    };
+
+    gradientChartOptionsConfigurationWithTooltipPurple = {
+      maintainAspectRatio: false,
+      legend: {
+        display: false
+      },
+
+      tooltips: {
+        backgroundColor: '#f5f5f5',
+        titleFontColor: '#333',
+        bodyFontColor: '#666',
+        bodySpacing: 4,
+        xPadding: 12,
+        mode: "nearest",
+        intersect: 0,
+        position: "nearest"
+      },
+      responsive: true,
+      scales: {
+        yAxes: [{
+          barPercentage: 1.6,
+          gridLines: {
+            drawBorder: false,
+            color: 'rgba(29,140,248,0.0)',
+            zeroLineColor: "transparent",
+          },
+          ticks: {
+            suggestedMin: 0.5,
+            suggestedMax: 2,
+            padding: 20,
+            fontColor: "#9a9a9a"
+          }
+        }],
+
+        xAxes: [{
+          barPercentage: 1.6,
+          gridLines: {
+            drawBorder: false,
+            color: 'rgba(225,78,202,0.1)',
+            zeroLineColor: "transparent",
+          },
+          ticks: {
+            padding: 20,
+            fontColor: "#9a9a9a"
+          }
+        }]
+      }
+    };
+
+    gradientChartOptionsConfigurationWithTooltipOrange = {
+      maintainAspectRatio: false,
+      legend: {
+        display: false
+      },
+
+      tooltips: {
+        backgroundColor: '#f5f5f5',
+        titleFontColor: '#333',
+        bodyFontColor: '#666',
+        bodySpacing: 4,
+        xPadding: 12,
+        mode: "nearest",
+        intersect: 0,
+        position: "nearest"
+      },
+      responsive: true,
+      scales: {
+        yAxes: [{
+          barPercentage: 1.6,
+          gridLines: {
+            drawBorder: false,
+            color: 'rgba(29,140,248,0.0)',
+            zeroLineColor: "transparent",
+          },
+          ticks: {
+            suggestedMin: 0,
+            suggestedMax: 4,
+            padding: 20,
+            fontColor: "#ff8a76"
+          }
+        }],
+
+        xAxes: [{
+          barPercentage: 1.6,
+          gridLines: {
+            drawBorder: false,
+            color: 'rgba(220,53,69,0.1)',
+            zeroLineColor: "transparent",
+          },
+          ticks: {
+            padding: 20,
+            fontColor: "#ff8a76"
+          }
+        }]
+      }
+    };
+
+    gradientChartOptionsConfigurationWithTooltipGreen = {
+      maintainAspectRatio: false,
+      legend: {
+        display: false
+      },
+
+      tooltips: {
+        backgroundColor: '#f5f5f5',
+        titleFontColor: '#333',
+        bodyFontColor: '#666',
+        bodySpacing: 4,
+        xPadding: 12,
+        mode: "nearest",
+        intersect: 0,
+        position: "nearest"
+      },
+      responsive: true,
+      scales: {
+        yAxes: [{
+          barPercentage: 1.6,
+          gridLines: {
+            drawBorder: false,
+            color: 'rgba(29,140,248,0.0)',
+            zeroLineColor: "transparent",
+          },
+          ticks: {
+            suggestedMin: 0,
+            suggestedMax: 10,
+            padding: 20,
+            fontColor: "#9e9e9e"
+          }
+        }],
+
+        xAxes: [{
+          barPercentage: 1.6,
+          gridLines: {
+            drawBorder: false,
+            color: 'rgba(0,242,195,0.1)',
+            zeroLineColor: "transparent",
+          },
+          ticks: {
+            padding: 20,
+            fontColor: "#9e9e9e"
+          }
+        }]
+      }
+    };
+
+
+    var ctx = document.getElementById("chartLinePurple").getContext("2d");
+
+    var gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
+
+    gradientStroke.addColorStop(1, 'rgba(72,72,176,0.2)');
+    gradientStroke.addColorStop(0.2, 'rgba(72,72,176,0.0)');
+    gradientStroke.addColorStop(0, 'rgba(119,52,169,0)'); //purple colors
+
+    var data = {
+      labels: empty_labels,
+      datasets: [{
+        label: "G force",
+        fill: true,
+        backgroundColor: gradientStroke,
+        borderColor: '#d048b6',
+        borderWidth: 2,
+        borderDash: [],
+        borderDashOffset: 0.0,
+        pointBackgroundColor: '#d048b6',
+        pointBorderColor: 'rgba(255,255,255,0)',
+        pointHoverBackgroundColor: '#d048b6',
+        pointBorderWidth: 20,
+        pointHoverRadius: 4,
+        pointHoverBorderWidth: 15,
+        pointRadius: 2,
+        data: list_landing_gs,
+      }]
+    };
+
+    var myChart = new Chart(ctx, {
+      type: 'line',
+	  responsive: true,
+      legend: {
+        display: false
+	  },
+      data: data,
+      options: gradientChartOptionsConfigurationWithTooltipPurple
+    });
+
+
+    var ctxGreen = document.getElementById("chartLineGreen").getContext("2d");
+
+    var gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
+
+    gradientStroke.addColorStop(1, 'rgba(66,134,121,0.15)');
+    gradientStroke.addColorStop(0.4, 'rgba(66,134,121,0.0)'); //green colors
+    gradientStroke.addColorStop(0, 'rgba(66,134,121,0)'); //green colors
+
+    var data = {
+      labels: empty_labels,
+      datasets: [{
+        label: "Altitude above ground",
+        fill: true,
+        backgroundColor: gradientStroke,
+        borderColor: '#00d6b4',
+        borderWidth: 2,
+        borderDash: [],
+        borderDashOffset: 0.0,
+        pointBackgroundColor: '#00d6b4',
+        pointBorderColor: 'rgba(255,255,255,0)',
+        pointHoverBackgroundColor: '#00d6b4',
+        pointBorderWidth: 20,
+        pointHoverRadius: 4,
+        pointHoverBorderWidth: 15,
+        pointRadius: 2,
+        data: list_landing_alts,
+      }]
+    };
+
+    var myChart = new Chart(ctxGreen, {
+      type: 'line',
+      data: data,
+      options: gradientChartOptionsConfigurationWithTooltipGreen
+
+    });
+
+    var ctx = document.getElementById("CountryChart").getContext("2d");
+
+    var gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
+
+    gradientStroke.addColorStop(1, 'rgba(29,140,248,0.2)');
+    gradientStroke.addColorStop(0.4, 'rgba(29,140,248,0.0)');
+    gradientStroke.addColorStop(0, 'rgba(29,140,248,0)'); //blue colors
+
+
+    var myChart = new Chart(ctx, {
+      type: 'line',
+      responsive: true,
+      legend: {
+        display: false
+      },
+      data: {
+        labels: empty_labels,
+        datasets: [{
+          label: "Vertical speed",
+          fill: true,
+          backgroundColor: gradientStroke,
+          hoverBackgroundColor: gradientStroke,
+          borderColor: '#1f8ef1',
+          borderWidth: 2,
+          borderDash: [],
+          borderDashOffset: 0.0,
+        pointBackgroundColor: '#2380f7',
+        pointBorderColor: 'rgba(255,255,255,0)',
+        pointHoverBackgroundColor: '#2380f7',
+        pointBorderWidth: 20,
+        pointHoverRadius: 4,
+        pointHoverBorderWidth: 15,
+        pointRadius: 2,
+          data: list_landing_vspeed,
+        }]
+      },
+      options: gradientChartOptionsConfigurationWithTooltipPurple
+    });
+
+  },
+
+
+};
+		
+		
+		
+		
+		
+		dummy = dummy + 1;
+		
+	}
+  });
+};
+
+</script>
+
+
+<body onload="update_values();">
+
+	<nav class="navbar" style="background: #1a1e34; width:100%; height:30px;">
+		<a class="navbar-brand" style="position:relative; margin-top:-12px; margin-left:8px" href="#">MSFS Landing Inspector</a>
+	</nav>
+	
+	
+	<div class="content" style="padding:10px 20px 0px 20px">
+	<!--div class="container"-->
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="card card-chart">
+					<div class="card-header">
+					<h5 class="card-category">Current Vertical Gs</h5>
+					<h3 class="card-title"><i class="tim-icons icon-planet text-primary"></i>  <span id="G_FORCE_Output">?</span></h3>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-sm-6">
+				<div class="card card-chart">
+					<div class="card-header">
+					<h5 class="card-category">Current Vertical Speed (FPM)</h5>
+					<h3 class="card-title"><i class="tim-icons icon-send text-info"></i>  <span id="VERTICAL_SPEED_Output">?</span></h3>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col">
+				<div class="card card-nav-tabs text-center">
+					<div class="card-body">
+					<p class="card-text"><<<<< LANDING DETAILS >>>>></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class = "row">
+			<div class="col-12">
+			<div class="alert alert-default" role="alert">
+			Landing Rating: <span id="LANDING_RATING_Output">N/A</span>
+			</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="card card-chart">
+					<div class="card-header">
+					<h5 class="card-category">Touchdown Vertical Gs</h5>
+					<h3 class="card-title"><i class="tim-icons icon-planet text-primary"></i>  <span id="G_FORCE_LANDING_Output">N/A</span></h3>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-sm-6">
+				<div class="card card-chart">
+					<div class="card-header">
+					<h5 class="card-category">Touchdown Vertical Speed (FPM)</h5>
+					<h3 class="card-title"><i class="tim-icons icon-send text-info"></i>  <span id="VERTICAL_SPEED_LANDING_Output">N/A</span></h3>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	<div class="row">
+	  <div class="col">
+		<div class="card card-chart">
+		  <div class="card-header">
+			<h3 class="card-category">Landing Vertical Gs</h3>
+		  </div>
+		  <div class="card-body">
+			<div class="chart-area">
+			  <canvas id="chartLinePurple"></canvas>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	<div class="row">
+	  <div class="col">
+		<div class="card card-chart">
+		  <div class="card-header">
+			<h5 class="card-category">Landing Vertical Speed (FPM)</h5>
+		  </div>
+		  <div class="card-body">
+			<div class="chart-area">
+			  <canvas id="CountryChart"></canvas>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+
+
+	<div class="row">
+	  <div class="col">
+		<div class="card card-chart">
+		  <div class="card-header">
+			<h5 class="card-category">Altitude Above Ground (FTS)</h5>
+		  </div>
+		  <div class="card-body">
+			<div class="chart-area">
+			  <canvas id="chartLineGreen"></canvas>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+
+</div>
+
+<footer class="footer" style="padding-top:0px; margin-top:-10px">
+	<div class="copyright">
+	<p>
+	version 1.0 | Created by <a href="https://www.caronstudios.net">Caron Studios s.r.o.</a>
+	</p>
+	<p>Support the development by donating <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CXDDYFUSWA2Z4&source=url">here.</a>
+	</p>
+	</div>
+	
+</footer>
+
+<script>
+document.getElementById("G_FORCE_Output").innerHTML;
+document.getElementById("VERTICAL_SPEED_Output").innerHTML;
+document.getElementById("G_FORCE_LANDING_Output").innerHTML;
+document.getElementById("VERTICAL_SPEED_LANDING_Output").innerHTML;
+document.getElementById("LANDING_RATING_Output").innerHTML;
+</script>
+
+<!--   Core JS Files   -->
+<script src="/static/assets/js/core/jquery.min.js"></script>
+<script src="/static/assets/js/core/popper.min.js"></script>
+<script src="/static/assets/js/core/bootstrap.min.js"></script>
+<script src="/static/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+
+<!-- Chart JS -->
+<script src="/static/assets/js/plugins/chartjs.min.js"></script>
+<!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
+<script src="/static/assets/js/black-dashboard.min.js?v=1.0.0"></script>
+
+<script>
+
+
+</script>
+
+</body>
+{% endblock %}
