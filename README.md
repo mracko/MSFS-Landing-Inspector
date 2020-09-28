@@ -42,7 +42,7 @@ MSFS Landing Inspector uses the Python [SimConnect](https://pypi.org/project/Sim
 ## Donation
 If you like this tool and would like to support the development, please consider donating by clicking on the link below.
 
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A8YE92K9QM7NA)
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CXDDYFUSWA2Z4&source=url)
 
 
 Happy landing!
