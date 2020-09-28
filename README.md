@@ -15,8 +15,8 @@ Screenshot of MSFS Landing Inspector in action:
 
 
 ## Requirements
--	Python 3.7 or later
--	Python-SimConnect library
+-	Python 3.7 64-bit or later
+-	Python SimConnect library
 -	Flask library
 
 ## Installation
