@@ -1,5 +1,5 @@
 # MSFS Landing Inspector
-MSFS Landing Inspector is tool for analyzing landings in Microsoft Flight Simulator 2020. It reads the airplane’s telemetry data via SimConnect and displays relevant information about your landing in a web browser. This MSFS Landing Inspector is free to use. If you like this tool and would like to support the development, please consider donating here.
+MSFS Landing Inspector is a tool for analyzing landings in Microsoft Flight Simulator 2020. It reads the airplane’s telemetry data via SimConnect and displays relevant information about your landing in a web browser. The MSFS Landing Inspector is free to use. If you like this tool and would like to support the development, please consider donating [here](__).
 
 MSFS Landing Inspector displays the following data:
 -	Current vertical G force
@@ -18,17 +18,25 @@ Screenshot of MSFS Landing Inspector in action:
 -	Flask library
 
 ## Installation
-1. Install the latest Python 3 Release for Windows. Download the installer from https://www.python.org/downloads/windows/.
+1. Install the latest Python 3 Release for Windows. Download the installer from the official [Python website](https://www.python.org/downloads/windows/).
 2. Run Command Prompt. Do this by pressing <kbd>Win</kbd> + <kbd>R</kbd>. Type *cmd.exe* and click OK.
-3. In the Command Prompt windown type *pip install flask* and press <kbd>Enter</kbd>. When asked to download any Python dependencies, type *y* and press <kbd>Enter</kbd>. This will install the Flask Python library.
-4. When finished installing Flask type *pip install SimConnect* and press <kbd>Enter</kbd>. When asked to download any Python dependencies, type *y* and press <kbd>Enter</kbd>.
+3. In the Command Prompt window type *pip install flask* and press <kbd>Enter</kbd>. When asked to download any other Python dependencies, type *y* and press <kbd>Enter</kbd>. This will install the Flask Python library.
+4. When finished installing Flask type *pip install SimConnect* and press <kbd>Enter</kbd>. When asked to download any other Python dependencies, type *y* and press <kbd>Enter</kbd>.
 
 ## Running MSFS Landing Inspector
 1. Start a flight in Microsoft Flight Simulator
-2. Download and unzip the MSFS Landing Inspector repository and run *msfs_landing_inspector.py* by double clicking on it. This should launch a Command Prompt window.
+2. Download and unzip the MSFS Landing Inspector repository and run *msfs_landing_inspector.py* by double-clicking on it. This should launch a Command Prompt window. Don't close this window.
 3. Open your browser and load the site *localhost:5000*. This should load up the MSFS Landing Inspector in your browser.
 
-## Running MSFS Ladning Inspector on your mobile device
-1.  
-2. Start a flight in Microsoft Flight Simulator
-3. Download and unzip the MSFS Landing Inspector repository and run *msfs_landing_inspector.py* by double clicking on it. This should launch a Command Prompt window.
+## Running MSFS Landing Inspector on your mobile device
+1. Make sure your PC and your mobile device are connected to the same local network and that your home network is set to *Private* in your Network Profile settings. 
+2. Run Command Prompt. Do this by pressing <kbd>Win</kbd> + <kbd>R</kbd>.
+3. In the Command Prompt window type *ipconfig* and press <kbd>Enter</kbd>. Look for the line *IPv4 Address* and write down the IP address. In my case, it's *192.168.0.120*. You will most likely have a different IP address. Close the Command Prompt window.
+4. Start a flight in Microsoft Flight Simulator
+5. Download and unzip the MSFS Landing Inspector repository and run *msfs_landing_inspector.py* by double-clicking on it. This should launch a Command Prompt window. Don't close this window.
+6. On your mobile device, load the following site in the browser: *<IP address you've written down>:5000*. In my case, this would be *192.168.0.120:5000*. MSFS Landing Inspector should now load on your mobile device.
+
+## Credits
+MSFS Landing Inspector uses the Python [SimConnect](https://pypi.org/project/SimConnect/) library and the CSS theme [xxx](_) by [xxx](_) for the web front-end.
+
+Happy landing!
