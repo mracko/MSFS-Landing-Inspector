@@ -11,6 +11,8 @@ MSFS Landing Inspector displays the following data:
 -	Graph showing the altitude above ground during landing
 
 Screenshot of MSFS Landing Inspector in action:
+![](images/MSFS_Landing_Inspector_Screenshot.png)
+
 
 ## Requirements
 -	Python 3.7 or later
