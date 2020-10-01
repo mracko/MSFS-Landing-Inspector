@@ -1,6 +1,12 @@
 # MSFS Landing Inspector
 MSFS Landing Inspector is a tool for analyzing landings in Microsoft Flight Simulator 2020. It reads the airplane’s telemetry data via SimConnect and displays relevant information about your landing in a web browser. The MSFS Landing Inspector is free to use.
 
+**October 1, 2020: Update Version 1.1:**
+- Fixed -999999 values caused by low frame rates.
+- Fixed vertical speed to represent true values instead of indicated.
+- Landing rating is now based on the vertical speed at touchdown.
+- Improved visualization of charts. Different colors are now shown for data when airborne and when on the ground.
+
 MSFS Landing Inspector displays the following data:
 -	Current vertical G force
 -	Current vertical speed
