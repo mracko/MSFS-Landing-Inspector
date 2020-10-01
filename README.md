@@ -7,7 +7,7 @@ MSFS Landing Inspector is a tool for analyzing landings in Microsoft Flight Simu
 - **Landing rating is now based on the vertical speed at touchdown.**
 - **Improved visualization of charts. Different colors are now shown for data when airborne and when on the ground.**
 
-MSFS Landing Inspector displays the following data:
+### MSFS Landing Inspector displays the following data:
 -	Current vertical G force
 -	Current vertical speed
 -	Touchdown G force
