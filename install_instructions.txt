@@ -14,6 +14,15 @@ MSFS Landing Inspector displays the following data:
 - Graph showing the vertical speed during landing
 - Graph showing the altitude above ground during landing
 
+Update Version 1.1:
+
+- Fixed -999999 values caused by low frame rates.
+- Fixed vertical speed to represent true values instead of indicated.
+- Landing rating is now based on the vertical speed at touchdown.
+- Improved visualization of charts. Different colors are now shown for data when airborne and when on the ground.
+
+Thanks to the community for your great support!
+
 2. REQUIREMENTS
 
 - Python 3.7 64-bit or later
