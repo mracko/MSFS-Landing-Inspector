@@ -1,34 +1,37 @@
 # MSFS Landing Inspector
 MSFS Landing Inspector is a tool for analyzing landings in Microsoft Flight Simulator 2020. It reads the airplane’s telemetry data via SimConnect and displays relevant information about your landing in a web browser. The MSFS Landing Inspector is free to use.
 
-## October 1, 2020: Update Version 1.1:
-- **Fixed -999999 values caused by low frame rates.**
-- **Fixed vertical speed to represent true values instead of indicated.**
-- **Landing rating is now based on the vertical speed at touchdown.**
-- **Improved visualization of charts. Different colors are now shown for data when airborne and when on the ground.**
+## October 7, 2020: Update Version 1.2:
+- **Improved G force values at touchdown.**
+- **Added new data readings and graphs for airspeed, pitch, bank, heading, wind speed/direction.**
+- **Added custom icons for HTML site.**
 
 ### MSFS Landing Inspector displays the following data:
--	Current vertical G force
--	Current vertical speed
--	Touchdown G force
--	Touchdown vertical speed
--	Graph showing the G forces during landing
--	Graph showing the vertical speed during landing
--	Graph showing the altitude above ground during landing
+- Current vertical G force
+- Current vertical speed
+- Touchdown G force
+- Touchdown vertical speed
+- Touchdown airspeed
+- Touchdown pitch, bank and heading
+- Touchdown wind speed and direction
+- Graph showing G forces during landing
+- Graph showing vertical speed during landing
+- Graph showing altitude above ground during landing
+- Graph showing airspeed during landing
+- Graph showing pitch, bank and heading during landing
+- Graph showing wind speed and direction during landing
 
 Screenshot of MSFS Landing Inspector in action:
 ![](images/MSFS_Landing_Inspector_Screenshot.png)
 
 ## Requirements
 -	Python 3.7 64-bit or later
--	Python SimConnect library
 -	Flask library
 
 ## Installation
 1. Install the latest Python 3 64-bit Release for Windows. Download the installer from the official [Python website](https://www.python.org/downloads/windows/). Here is a direct link to the [Python 3.8.6 64-bit installer](https://www.python.org/ftp/python/3.8.6/python-3.8.6-amd64.exe). Tick the *Add Python 3.8 to PATH* checkbox when installing Python.
 2. Run Command Prompt. Do this by pressing <kbd>Win</kbd> + <kbd>R</kbd>. Type *cmd.exe* and click OK.
 3. In the Command Prompt window type *pip install flask* and press <kbd>Enter</kbd>. When asked to download any other Python dependencies, type *y* and press <kbd>Enter</kbd>. This will install the Flask Python library.
-4. When finished installing Flask type *pip install SimConnect* and press <kbd>Enter</kbd>. When asked to download any other Python dependencies, type *y* and press <kbd>Enter</kbd>.
 
 ## Running MSFS Landing Inspector
 1. Start a flight in Microsoft Flight Simulator
