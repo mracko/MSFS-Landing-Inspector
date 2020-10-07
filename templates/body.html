@@ -17,6 +17,17 @@ function update_values() {
 	$('#G_FORCE_LANDING_Output').text(data_simconnect.G_FORCE_LANDING)
 	$('#VERTICAL_SPEED_LANDING_Output').text(data_simconnect.VERTICAL_SPEED_LANDING)
 	$('#LANDING_RATING_Output').text(data_simconnect.LANDING_RATING)
+	$('#AIRSPEED_Output').text(data_simconnect.AIRSPEED)
+	$('#PITCH_Output').text(data_simconnect.PITCH)
+	$('#BANK_Output').text(data_simconnect.BANK)
+	$('#HEADING_Output').text(data_simconnect.HEADING)
+	$('#WIND_SPEED_Output').text(data_simconnect.WIND_SPEED)
+	$('#WIND_DIRECTION_Output').text(data_simconnect.WIND_DIRECTION)
+	
+	var landing_rating = data_simconnect.LANDING_RATING;
+	var landing_counter = data_simconnect.LANDING_COUNTER;
+		
+	if (dummy <= landing_counter) {
 	
 	var empty_labels = data_simconnect.LABELS;
 	var list_landing_gs = data_simconnect.G_FORCE_LANDING_LIST;
@@ -25,11 +36,18 @@ function update_values() {
 	var list_landing_gs_ground = data_simconnect.G_FORCE_LANDING_LIST_GROUND
 	var list_landing_vspeed_ground = data_simconnect.VERTICAL_SPEED_LANDING_LIST_GROUND;
 	var list_landing_alts_ground = data_simconnect.PLANE_ALT_ABOVE_GROUND_LIST_GROUND;
-	var landing_rating = data_simconnect.LANDING_RATING;
-	var landing_counter = data_simconnect.LANDING_COUNTER;
-	
-	if (dummy <= landing_counter) {
-	
+	var list_landing_airspeed = data_simconnect.AIRSPEED_LIST;
+	var list_landing_airspeed_ground = data_simconnect.AIRSPEED_LIST_GROUND;
+	var list_landing_pitch = data_simconnect.PITCH_LIST;
+	var list_landing_pitch_ground = data_simconnect.PITCH_LIST_GROUND;
+	var list_landing_bank = data_simconnect.BANK_LIST;
+	var list_landing_bank_ground = data_simconnect.BANK_LIST_GROUND;
+	var list_landing_heading = data_simconnect.HEADING_LIST;
+	var list_landing_heading_ground = data_simconnect.HEADING_LIST_GROUND;
+	var list_landing_wind_speed = data_simconnect.WIND_SPEED_LIST;
+	var list_landing_wind_speed_ground = data_simconnect.WIND_SPEED_LIST_GROUND;
+	var list_landing_wind_direction = data_simconnect.WIND_DIRECTION_LIST;
+	var list_landing_wind_direction_ground = data_simconnect.WIND_DIRECTION_LIST_GROUND;
 	
 $(document).ready(function() {
   // Javascript method's body can be found in assets/js/demos.js
@@ -181,7 +199,281 @@ gradientChartOptionsConfigurationWithTooltipBlue = {
       }
     };
     
-   
+	gradientChartOptionsConfigurationWithTooltipAirspeed = {
+      maintainAspectRatio: false,
+      legend: {
+        display: false
+      },
+
+      tooltips: {
+        backgroundColor: '#f5f5f5',
+        titleFontColor: '#333',
+        bodyFontColor: '#666',
+        bodySpacing: 4,
+        xPadding: 12,
+        mode: "nearest",
+        intersect: 0,
+        position: "nearest"
+      },
+      responsive: true,
+      scales: {
+        yAxes: [{
+          barPercentage: 1.6,
+          gridLines: {
+            drawBorder: false,
+            color: 'rgba(29,140,248,0.0)',
+            zeroLineColor: "transparent",
+          },
+          ticks: {
+            padding: 20,
+            fontColor: "#9a9a9a"
+          }
+        }],
+
+        xAxes: [{
+          barPercentage: 1.6,
+          gridLines: {
+            drawBorder: false,
+            color: 'rgba(23,197,241,0.1)',
+            zeroLineColor: "transparent",
+          },
+          ticks: {
+            padding: 20,
+            fontColor: "#9a9a9a"
+          }
+        }]
+      }
+    };
+	
+	gradientChartOptionsConfigurationWithTooltipHeading = {
+      maintainAspectRatio: false,
+      legend: {
+        display: false
+      },
+
+      tooltips: {
+        backgroundColor: '#f5f5f5',
+        titleFontColor: '#333',
+        bodyFontColor: '#666',
+        bodySpacing: 4,
+        xPadding: 12,
+        mode: "nearest",
+        intersect: 0,
+        position: "nearest"
+      },
+      responsive: true,
+      scales: {
+        yAxes: [{
+          barPercentage: 1.6,
+          gridLines: {
+            drawBorder: false,
+            color: 'rgba(29,140,248,0.0)',
+            zeroLineColor: "transparent",
+          },
+          ticks: {
+            padding: 20,
+            fontColor: "#9a9a9a"
+          }
+        }],
+
+        xAxes: [{
+          barPercentage: 1.6,
+          gridLines: {
+            drawBorder: false,
+            color: 'rgba(43,147,60,0.1)',
+            zeroLineColor: "transparent",
+          },
+          ticks: {
+            padding: 20,
+            fontColor: "#9a9a9a"
+          }
+        }]
+      }
+    };
+
+	gradientChartOptionsConfigurationWithTooltipPitch = {
+      maintainAspectRatio: false,
+      legend: {
+        display: false
+      },
+
+      tooltips: {
+        backgroundColor: '#f5f5f5',
+        titleFontColor: '#333',
+        bodyFontColor: '#666',
+        bodySpacing: 4,
+        xPadding: 12,
+        mode: "nearest",
+        intersect: 0,
+        position: "nearest"
+      },
+      responsive: true,
+      scales: {
+        yAxes: [{
+          barPercentage: 1.6,
+          gridLines: {
+            drawBorder: false,
+            color: 'rgba(29,140,248,0.0)',
+            zeroLineColor: "transparent",
+          },
+          ticks: {
+            padding: 20,
+            fontColor: "#9a9a9a"
+          }
+        }],
+
+        xAxes: [{
+          barPercentage: 1.6,
+          gridLines: {
+            drawBorder: false,
+            color: 'rgba(82,226,105,0.1)',
+            zeroLineColor: "transparent",
+          },
+          ticks: {
+            padding: 20,
+            fontColor: "#9a9a9a"
+          }
+        }]
+      }
+    };
+	
+	gradientChartOptionsConfigurationWithTooltipBank = {
+      maintainAspectRatio: false,
+      legend: {
+        display: false
+      },
+
+      tooltips: {
+        backgroundColor: '#f5f5f5',
+        titleFontColor: '#333',
+        bodyFontColor: '#666',
+        bodySpacing: 4,
+        xPadding: 12,
+        mode: "nearest",
+        intersect: 0,
+        position: "nearest"
+      },
+      responsive: true,
+      scales: {
+        yAxes: [{
+          barPercentage: 1.6,
+          gridLines: {
+            drawBorder: false,
+            color: 'rgba(29,140,248,0.0)',
+            zeroLineColor: "transparent",
+          },
+          ticks: {
+            padding: 20,
+            fontColor: "#9a9a9a"
+          }
+        }],
+
+        xAxes: [{
+          barPercentage: 1.6,
+          gridLines: {
+            drawBorder: false,
+            color: 'rgba(63,190,84,0.1)',
+            zeroLineColor: "transparent",
+          },
+          ticks: {
+            padding: 20,
+            fontColor: "#9a9a9a"
+          }
+        }]
+      }
+    }; 
+
+	gradientChartOptionsConfigurationWithTooltipWindSpeed = {
+      maintainAspectRatio: false,
+      legend: {
+        display: false
+      },
+
+      tooltips: {
+        backgroundColor: '#f5f5f5',
+        titleFontColor: '#333',
+        bodyFontColor: '#666',
+        bodySpacing: 4,
+        xPadding: 12,
+        mode: "nearest",
+        intersect: 0,
+        position: "nearest"
+      },
+      responsive: true,
+      scales: {
+        yAxes: [{
+          barPercentage: 1.6,
+          gridLines: {
+            drawBorder: false,
+            color: 'rgba(29,140,248,0.0)',
+            zeroLineColor: "transparent",
+          },
+          ticks: {
+            padding: 20,
+            fontColor: "#9a9a9a"
+          }
+        }],
+
+        xAxes: [{
+          barPercentage: 1.6,
+          gridLines: {
+            drawBorder: false,
+            color: 'rgba(217,202,52,0.1)',
+            zeroLineColor: "transparent",
+          },
+          ticks: {
+            padding: 20,
+            fontColor: "#9a9a9a"
+          }
+        }]
+      }
+    }; 
+
+	gradientChartOptionsConfigurationWithTooltipWindDirection = {
+      maintainAspectRatio: false,
+      legend: {
+        display: false
+      },
+
+      tooltips: {
+        backgroundColor: '#f5f5f5',
+        titleFontColor: '#333',
+        bodyFontColor: '#666',
+        bodySpacing: 4,
+        xPadding: 12,
+        mode: "nearest",
+        intersect: 0,
+        position: "nearest"
+      },
+      responsive: true,
+      scales: {
+        yAxes: [{
+          barPercentage: 1.6,
+          gridLines: {
+            drawBorder: false,
+            color: 'rgba(29,140,248,0.0)',
+            zeroLineColor: "transparent",
+          },
+          ticks: {
+            padding: 20,
+            fontColor: "#9a9a9a"
+          }
+        }],
+
+        xAxes: [{
+          barPercentage: 1.6,
+          gridLines: {
+            drawBorder: false,
+            color: 'rgba(222,162,47,0.1)',
+            zeroLineColor: "transparent",
+          },
+          ticks: {
+            padding: 20,
+            fontColor: "#9a9a9a"
+          }
+        }]
+      }
+    }; 
 
 /// Good Example ///
 
@@ -346,6 +638,333 @@ gradientChartOptionsConfigurationWithTooltipBlue = {
 
 /// End of Good Example      
 
+/// Good Example ///
+
+    var ctxAirspeed = document.getElementById("chartLineAirspeed").getContext("2d");
+
+    var data = {
+      labels: empty_labels,
+      datasets: [
+	  {
+		label: "Airspeed (on ground)",
+        fill: true,
+        borderColor: '#17c5f1',
+        borderWidth: 2,
+        borderDash: [],
+        borderDashOffset: 0.0,
+        pointBackgroundColor: '#17c5f1',
+        pointBorderColor: 'rgba(255,255,255,0)',
+        pointHoverBackgroundColor: '#17c5f1',
+        pointBorderWidth: 20,
+        pointHoverRadius: 4,
+        pointHoverBorderWidth: 15,
+        pointRadius: 4,
+        data: list_landing_airspeed_ground,
+      }, 
+	  
+	  {
+				
+		label: "Airspeed (airborne)",
+        fill: true,
+        borderColor: '#a3a3a3',
+        borderWidth: 2,
+        borderDash: [],
+        borderDashOffset: 0.0,
+        pointBackgroundColor: '#a3a3a3',
+        pointBorderColor: 'rgba(255,255,255,0)',
+        pointHoverBackgroundColor: '#a3a3a3',
+        pointBorderWidth: 20,
+        pointHoverRadius: 4,
+        pointHoverBorderWidth: 15,
+        pointRadius: 4,
+        data: list_landing_airspeed,
+		
+	},]
+		
+	  
+    };
+
+    var myChart = new Chart(ctxAirspeed, {
+      type: 'line',
+      data: data,
+      options: gradientChartOptionsConfigurationWithTooltipAirspeed
+    });
+
+/// End of Good Example  
+
+
+/// Good Example ///
+
+    var ctxHeading = document.getElementById("chartLineHeading").getContext("2d");
+
+    var data = {
+      labels: empty_labels,
+      datasets: [
+	  {
+		label: "Heading (on ground)",
+        fill: true,
+        borderColor: '#2b933c',
+        borderWidth: 2,
+        borderDash: [],
+        borderDashOffset: 0.0,
+        pointBackgroundColor: '#2b933c',
+        pointBorderColor: 'rgba(255,255,255,0)',
+        pointHoverBackgroundColor: '#2b933c',
+        pointBorderWidth: 20,
+        pointHoverRadius: 4,
+        pointHoverBorderWidth: 15,
+        pointRadius: 4,
+        data: list_landing_heading_ground,
+      }, 
+	  
+	  {
+				
+		label: "Heading (airborne)",
+        fill: true,
+        borderColor: '#a3a3a3',
+        borderWidth: 2,
+        borderDash: [],
+        borderDashOffset: 0.0,
+        pointBackgroundColor: '#a3a3a3',
+        pointBorderColor: 'rgba(255,255,255,0)',
+        pointHoverBackgroundColor: '#a3a3a3',
+        pointBorderWidth: 20,
+        pointHoverRadius: 4,
+        pointHoverBorderWidth: 15,
+        pointRadius: 4,
+        data: list_landing_heading,
+		
+	},]
+		
+	  
+    };
+
+    var myChart = new Chart(ctxHeading, {
+      type: 'line',
+      data: data,
+      options: gradientChartOptionsConfigurationWithTooltipHeading
+	});
+	
+/// End of Good Example 
+
+/// Good Example ///
+
+    var ctxPitch = document.getElementById("chartLinePitch").getContext("2d");
+
+    var data = {
+      labels: empty_labels,
+      datasets: [
+	  {
+		label: "Pitch (on ground)",
+        fill: true,
+        borderColor: '#52e269',
+        borderWidth: 2,
+        borderDash: [],
+        borderDashOffset: 0.0,
+        pointBackgroundColor: '#52e269',
+        pointBorderColor: 'rgba(255,255,255,0)',
+        pointHoverBackgroundColor: '#52e269',
+        pointBorderWidth: 20,
+        pointHoverRadius: 4,
+        pointHoverBorderWidth: 15,
+        pointRadius: 4,
+        data: list_landing_pitch_ground,
+      }, 
+	  
+	  {
+				
+		label: "Pitch (airborne)",
+        fill: true,
+        borderColor: '#a3a3a3',
+        borderWidth: 2,
+        borderDash: [],
+        borderDashOffset: 0.0,
+        pointBackgroundColor: '#a3a3a3',
+        pointBorderColor: 'rgba(255,255,255,0)',
+        pointHoverBackgroundColor: '#a3a3a3',
+        pointBorderWidth: 20,
+        pointHoverRadius: 4,
+        pointHoverBorderWidth: 15,
+        pointRadius: 4,
+        data: list_landing_pitch,
+		
+	},]
+		
+	  
+    };
+
+    var myChart = new Chart(ctxPitch, {
+      type: 'line',
+      data: data,
+      options: gradientChartOptionsConfigurationWithTooltipPitch
+    });
+
+/// End of Good Example 
+
+
+/// Good Example ///
+
+    var ctxBank = document.getElementById("chartLineBank").getContext("2d");
+
+    var data = {
+      labels: empty_labels,
+      datasets: [
+	  {
+		label: "Bank (on ground)",
+        fill: true,
+        borderColor: '#3fbe54',
+        borderWidth: 2,
+        borderDash: [],
+        borderDashOffset: 0.0,
+        pointBackgroundColor: '#3fbe54',
+        pointBorderColor: 'rgba(255,255,255,0)',
+        pointHoverBackgroundColor: '#3fbe54',
+        pointBorderWidth: 20,
+        pointHoverRadius: 4,
+        pointHoverBorderWidth: 15,
+        pointRadius: 4,
+        data: list_landing_bank_ground,
+      }, 
+	  
+	  {
+				
+		label: "Bank (airborne)",
+        fill: true,
+        borderColor: '#a3a3a3',
+        borderWidth: 2,
+        borderDash: [],
+        borderDashOffset: 0.0,
+        pointBackgroundColor: '#a3a3a3',
+        pointBorderColor: 'rgba(255,255,255,0)',
+        pointHoverBackgroundColor: '#a3a3a3',
+        pointBorderWidth: 20,
+        pointHoverRadius: 4,
+        pointHoverBorderWidth: 15,
+        pointRadius: 4,
+        data: list_landing_bank,
+		
+	},]
+		
+	  
+    };
+
+    var myChart = new Chart(ctxBank, {
+      type: 'line',
+      data: data,
+      options: gradientChartOptionsConfigurationWithTooltipBank
+    });
+
+/// End of Good Example 
+
+/// Good Example ///
+
+    var ctxWindSpeed = document.getElementById("chartLineWindSpeed").getContext("2d");
+
+    var data = {
+      labels: empty_labels,
+      datasets: [
+	  {
+		label: "Wind speed (on ground)",
+        fill: true,
+        borderColor: '#d9ca34',
+        borderWidth: 2,
+        borderDash: [],
+        borderDashOffset: 0.0,
+        pointBackgroundColor: '#d9ca34',
+        pointBorderColor: 'rgba(255,255,255,0)',
+        pointHoverBackgroundColor: '#d9ca34',
+        pointBorderWidth: 20,
+        pointHoverRadius: 4,
+        pointHoverBorderWidth: 15,
+        pointRadius: 4,
+        data: list_landing_wind_speed_ground,
+      }, 
+	  
+	  {
+				
+		label: "Wind speed (airborne)",
+        fill: true,
+        borderColor: '#a3a3a3',
+        borderWidth: 2,
+        borderDash: [],
+        borderDashOffset: 0.0,
+        pointBackgroundColor: '#a3a3a3',
+        pointBorderColor: 'rgba(255,255,255,0)',
+        pointHoverBackgroundColor: '#a3a3a3',
+        pointBorderWidth: 20,
+        pointHoverRadius: 4,
+        pointHoverBorderWidth: 15,
+        pointRadius: 4,
+        data: list_landing_wind_speed,
+		
+	},]
+		
+	  
+    };
+
+    var myChart = new Chart(ctxWindSpeed, {
+      type: 'line',
+      data: data,
+      options: gradientChartOptionsConfigurationWithTooltipWindSpeed
+    });
+
+/// End of Good Example 
+
+/// Good Example ///
+
+    var ctxWindDirection = document.getElementById("chartLineWindDirection").getContext("2d");
+
+    var data = {
+      labels: empty_labels,
+      datasets: [
+	  {
+		label: "Wind direction (on ground)",
+        fill: true,
+        borderColor: '#dea22f',
+        borderWidth: 2,
+        borderDash: [],
+        borderDashOffset: 0.0,
+        pointBackgroundColor: '#dea22f',
+        pointBorderColor: 'rgba(255,255,255,0)',
+        pointHoverBackgroundColor: '#dea22f',
+        pointBorderWidth: 20,
+        pointHoverRadius: 4,
+        pointHoverBorderWidth: 15,
+        pointRadius: 4,
+        data: list_landing_wind_direction_ground,
+      }, 
+	  
+	  {
+				
+		label: "Wind direction (airborne)",
+        fill: true,
+        borderColor: '#a3a3a3',
+        borderWidth: 2,
+        borderDash: [],
+        borderDashOffset: 0.0,
+        pointBackgroundColor: '#a3a3a3',
+        pointBorderColor: 'rgba(255,255,255,0)',
+        pointHoverBackgroundColor: '#a3a3a3',
+        pointBorderWidth: 20,
+        pointHoverRadius: 4,
+        pointHoverBorderWidth: 15,
+        pointRadius: 4,
+        data: list_landing_wind_direction,
+		
+	},]
+		
+	  
+    };
+
+    var myChart = new Chart(ctxWindDirection, {
+      type: 'line',
+      data: data,
+      options: gradientChartOptionsConfigurationWithTooltipWindDirection
+    });
+
+/// End of Good Example 
+
+
 // END CHARTS
 
   },
@@ -377,7 +996,7 @@ gradientChartOptionsConfigurationWithTooltipBlue = {
 				<div class="card card-chart">
 					<div class="card-header">
 					<h5 class="card-category">Current Vertical Gs</h5>
-					<h3 class="card-title"><i class="tim-icons icon-planet text-primary"></i>  <span id="G_FORCE_Output">?</span></h3>
+					<h3 class="card-title"><img src="/static/img/ico_g_force.png" width="27" height="27">  <span id="G_FORCE_Output">?</span></h3>
 					</div>
 				</div>
 			</div>
@@ -386,7 +1005,7 @@ gradientChartOptionsConfigurationWithTooltipBlue = {
 				<div class="card card-chart">
 					<div class="card-header">
 					<h5 class="card-category">Current Vertical Speed (FPM)</h5>
-					<h3 class="card-title"><i class="tim-icons icon-send text-info"></i>  <span id="VERTICAL_SPEED_Output">?</span></h3>
+					<h3 class="card-title"><img src="/static/img/ico_vert_speed.png" width="27" height="27">  <span id="VERTICAL_SPEED_Output">?</span></h3>
 					</div>
 				</div>
 			</div>
@@ -415,7 +1034,7 @@ gradientChartOptionsConfigurationWithTooltipBlue = {
 				<div class="card card-chart">
 					<div class="card-header">
 					<h5 class="card-category">Touchdown Vertical Gs</h5>
-					<h3 class="card-title"><i class="tim-icons icon-planet text-primary"></i>  <span id="G_FORCE_LANDING_Output">N/A</span></h3>
+					<h3 class="card-title"><img src="/static/img/ico_g_force.png" width="27" height="27">  <span id="G_FORCE_LANDING_Output">N/A</span></h3>
 					</div>
 				</div>
 			</div>
@@ -424,12 +1043,71 @@ gradientChartOptionsConfigurationWithTooltipBlue = {
 				<div class="card card-chart">
 					<div class="card-header">
 					<h5 class="card-category">Touchdown Vertical Speed (FPM)</h5>
-					<h3 class="card-title"><i class="tim-icons icon-send text-info"></i>  <span id="VERTICAL_SPEED_LANDING_Output">N/A</span></h3>
+					<h3 class="card-title"><img src="/static/img/ico_vert_speed.png" width="27" height="27">  <span id="VERTICAL_SPEED_LANDING_Output">N/A</span></h3>
 					</div>
 				</div>
 			</div>
 		</div>
 		
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="card card-chart">
+					<div class="card-header">
+					<h5 class="card-category">Touchdown Airspeed (True in KTS)</h5>
+					<h3 class="card-title"><img src="/static/img/ico_airspeed.png" width="27" height="27">  <span id="AIRSPEED_Output">N/A</span></h3>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-sm-6">
+				<div class="card card-chart">
+					<div class="card-header">
+					<h5 class="card-category">Touchdown Heading</h5>
+					<h3 class="card-title"><img src="/static/img/ico_heading.png" width="27" height="27">  <span id="HEADING_Output">N/A</span></h3>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="card card-chart">
+					<div class="card-header">
+					<h5 class="card-category">Touchdown Pitch (Positive -> Up)</h5>
+					<h3 class="card-title"><img src="/static/img/ico_pitch.png" width="27" height="27">  <span id="PITCH_Output">N/A</span></h3>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-sm-6">
+				<div class="card card-chart">
+					<div class="card-header">
+					<h5 class="card-category">Touchdown Bank (Positive -> Left)</h5>
+					<h3 class="card-title"><img src="/static/img/ico_bank.png" width="27" height="27">  <span id="BANK_Output">N/A</span></h3>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="card card-chart">
+					<div class="card-header">
+					<h5 class="card-category">Touchdown Wind Speed (KTS)</h5>
+					<h3 class="card-title"><img src="/static/img/ico_wind_speed.png" width="27" height="27">  <span id="WIND_SPEED_Output">N/A</span></h3>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-sm-6">
+				<div class="card card-chart">
+					<div class="card-header">
+					<h5 class="card-category">Touchdown Wind Direction</h5>
+					<h3 class="card-title"><img src="/static/img/ico_wind_direction.png" width="27" height="27">  <span id="WIND_DIRECTION_Output">N/A</span></h3>
+					</div>
+				</div>
+			</div>
+		</div>
 
 	<div class="row">
 	  <div class="col">
@@ -476,11 +1154,98 @@ gradientChartOptionsConfigurationWithTooltipBlue = {
 	  </div>
 	</div>
 
-<p class="text-muted">
-Notice: G force indicator is dependent on FPS and is less reliable than the vertical speed at the moment of touchdown.
-</p>
+	<div class="row">
+	  <div class="col">
+		<div class="card card-chart">
+		  <div class="card-header">
+			<h5 class="card-category">Airspeed (True in KTS)</h5>
+		  </div>
+		  <div class="card-body">
+			<div class="chart-area">
+			  <canvas id="chartLineAirspeed"></canvas>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	
+	<div class="row">
+	  <div class="col">
+		<div class="card card-chart">
+		  <div class="card-header">
+			<h5 class="card-category">Heading</h5>
+		  </div>
+		  <div class="card-body">
+			<div class="chart-area">
+			  <canvas id="chartLineHeading"></canvas>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	
+	<div class="row">
+	  <div class="col">
+		<div class="card card-chart">
+		  <div class="card-header">
+			<h5 class="card-category">Pitch (Degrees, positive numbers -> Up)</h5>
+		  </div>
+		  <div class="card-body">
+			<div class="chart-area">
+			  <canvas id="chartLinePitch"></canvas>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	
+	<div class="row">
+	  <div class="col">
+		<div class="card card-chart">
+		  <div class="card-header">
+			<h5 class="card-category">Bank (Degrees, positive -> Left)</h5>
+		  </div>
+		  <div class="card-body">
+			<div class="chart-area">
+			  <canvas id="chartLineBank"></canvas>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+
+	<div class="row">
+	  <div class="col">
+		<div class="card card-chart">
+		  <div class="card-header">
+			<h5 class="card-category">Wind Speed (KTS)</h5>
+		  </div>
+		  <div class="card-body">
+			<div class="chart-area">
+			  <canvas id="chartLineWindSpeed"></canvas>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+
+	<div class="row">
+	  <div class="col">
+		<div class="card card-chart">
+		  <div class="card-header">
+			<h5 class="card-category">Wind Direction</h5>
+		  </div>
+		  <div class="card-body">
+			<div class="chart-area">
+			  <canvas id="chartLineWindDirection"></canvas>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+
 <p>
-version 1.1 | Created by <a href="https://www.caronstudios.net">Caron Studios s.r.o.</a>
+version 1.2 | Created by <a href="https://www.caronstudios.net">Caron Studios s.r.o.</a>
 </p>
 <p>Support the development by donating <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CXDDYFUSWA2Z4&source=url">here.</a>
 </p>
@@ -493,6 +1258,12 @@ document.getElementById("VERTICAL_SPEED_Output").innerHTML;
 document.getElementById("G_FORCE_LANDING_Output").innerHTML;
 document.getElementById("VERTICAL_SPEED_LANDING_Output").innerHTML;
 document.getElementById("LANDING_RATING_Output").innerHTML;
+document.getElementById("AIRSPEED_Output").innerHTML;
+document.getElementById("PITCH_Output").innerHTML;
+document.getElementById("BANK_Output").innerHTML;
+document.getElementById("HEADING_Output").innerHTML;
+document.getElementById("WIND_SPEED_Output").innerHTML;
+document.getElementById("WIND_DIRECTION_Output").innerHTML;
 </script>
 
 <!--   Core JS Files   -->
