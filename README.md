@@ -33,6 +33,8 @@ Screenshot of MSFS Landing Inspector in action:
 2. Run Command Prompt. Do this by pressing <kbd>Win</kbd> + <kbd>R</kbd>. Type *cmd.exe* and click OK.
 3. In the Command Prompt window type *pip install flask* and press <kbd>Enter</kbd>. When asked to download any other Python dependencies, type *y* and press <kbd>Enter</kbd>. This will install the Flask Python library.
 
+You can also download a standalone compiled executable version of MSFS Landing Inspector [here](https://github.com/mracko/MSFS-Landing-Inspector/releases/tag/1.2). The compiled executable doesn't require Python or any additional libraries.
+
 ## Running MSFS Landing Inspector
 1. Start a flight in Microsoft Flight Simulator
 2. Download and unzip the MSFS Landing Inspector repository and run *msfs_landing_inspector.py* by double-clicking on it. This should launch a Command Prompt window. Don't close this window.
