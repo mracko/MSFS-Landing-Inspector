@@ -1,4 +1,4 @@
-from SimConnect import *
+from .SimConnect import *
 from .Enum import *
 from .Constants import *
 
