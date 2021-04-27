@@ -448,15 +448,15 @@ def simconnect_thread_func(threadname):
 
         
 if __name__ == "__main__":
-    thread1 = Thread(target = simconnect_thread_func, args=('Thread-1', ))
-    thread2 = Thread(target = flask_thread_func, args=('Thread-2', ))
+    thread1 = Thread(target = simconnect_thread_func, args=('Thread-1', ), daemon=True)
+    thread2 = Thread(target = flask_thread_func, args=('Thread-2', ), daemon=True)
     thread1.start()
     thread2.start()
-    
-    time.sleep(.5)
-    
+
     print("\n*********************")
     print("MSFS Landing Inspector initialized")
     print("Load 'localhost:5000' in your browser to start MSFS Landing Inspector")
     print("Tip: You can access MSFS Landing Inspector from your mobile device. Check install_instructions.txt for instructions.")
-        
+    print("\n*********************\n\n")
+    while True:
+        time.sleep(.5)
